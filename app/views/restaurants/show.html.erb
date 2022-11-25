@@ -1,0 +1,24 @@
+<%= render 'restaurants/banner_restaurant' %>
+<div class="container mt-4">
+  <h1><%= @restaurant.name %> <small><%= @restaurant.address %></small></h1>
+
+  <h4><%= pluralize @restaurant.reviews.size, "review" %></h4>
+
+  <div data-controller="insert">
+    <div data-insert-target="list">
+      <% if @restaurant.reviews.blank? %>
+        <em>Be the first to leave a review for <%= @restaurant.name %></em>
+      <% else %>
+        <% @restaurant.reviews.each do |review| %>
+         <%= render "reviews/review", review: review %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="border p-3 w-50 mt-5 mb-5">
+      <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+    </div>
+  </div>
+
+  <%= link_to "Back to all restaurants", restaurants_path, class: 'btn btn-warning mb-5' %>
+</div>

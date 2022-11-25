@@ -1,0 +1,6 @@
+<%= simple_form_for([restaurant, review], 
+    data: {insert_target: "form",
+    action: "submit->insert#send"}) do |f| %>
+    <%= f.input :content, wrapper_html: { class: "mt-2"} %>
+    <%= f.button :submit, class: "btn btn-success mb-3" %>
+<% end %>

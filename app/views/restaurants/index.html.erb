@@ -1,0 +1,11 @@
+<%= render 'shared/banner' %>
+
+<div class="container mt-4">
+  <h1>Restaurants</h1>
+
+  <div>
+    <% @restaurants.each do |restaurant| %>
+      <%= render 'restaurants/restaurant', restaurant: restaurant %>
+    <% end %>
+  </div>
+</div>
